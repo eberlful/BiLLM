@@ -76,7 +76,6 @@ def quant_sequential(model, dataloader, dev):
     elif "phi" in args.model:
         layers = model.model.layers
         model.model.embed_tokens = model.model.embed_tokens.to(dev)
-        model.model.decoder.embed_positions = model.model.decoder.embed_positions.to(dev)
     elif "mistral" in args.model:
         layers = model.model.layers
         model.model.embed_tokens = model.model.embed_tokens.to(dev)
