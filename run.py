@@ -30,12 +30,12 @@ def get_model(model):
     elif "phi" in model:
         from transformers import PhiForCausalLM
 
-        model = PhiForCausalLM.from_pretrained(model, torch_dtypes="auto")
+        model = PhiForCausalLM.from_pretrained(model, torch_dtype="auto")
         model.seqlen = 2048
     elif "mistral" in model:
         from transformers import MistralForCausalLM
 
-        model = MistralForCausalLM.from_pretrained(model, torch_dtypes="auto")
+        model = MistralForCausalLM.from_pretrained(model, torch_dtype="auto")
         model.seqlen = 8192
     return model
 

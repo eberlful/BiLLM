@@ -23,6 +23,10 @@ Pretrained large language models (LLMs) exhibit exceptional general language pro
 
 All binarization process and experiments were run on a single 80GB NVIDIA A100. However, all the process can also be conducted on a single 24GB NVIDIA 3090 Ti when the model's parameter is under 70B.
 
+## Installation
+
+> To use the PhiForCausalLM for the phi-2 model update to the newest transformers package `pip uninstall -y transformers && pip install git+https://github.com/huggingface/transformers`
+
 ## LLMs Binarization
 
 #### Binarization for OPT families
