@@ -143,8 +143,6 @@ def phi_eval(model, testenc, dev,  dataset: str, log_wandb: bool = False):
         torch.cuda.empty_cache()
         inps, outs = outs, inps
 
-    if model.model.norm is not None:
-        model.model.norm = model.model.norm.to(dev)
     model.lm_head = model.lm_head.to(dev)
 
     testenc = testenc.to(dev)
