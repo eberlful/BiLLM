@@ -27,6 +27,16 @@ def get_model(model):
 
         model = LlamaForCausalLM.from_pretrained(model, torch_dtype="auto")
         model.seqlen = 2048
+    elif "phi" in model:
+        from transformers import PhiForCausalLM
+
+        model = PhiForCausalLM.from_pretrained(model, torch_dtypes="auto")
+        model.seqlen = 2048
+    elif "mistral" in model:
+        from transformers import MistralForCausalLM
+
+        model = MistralForCausalLM.from_pretrained(model, torch_dtypes="auto")
+        model.seqlen = 8192
     return model
 
 
@@ -299,3 +309,11 @@ if __name__ == "__main__":
             from eval_ppl_utils import llama_eval
 
             llama_eval(model, testloader, device, dataset, args.log_wandb)
+        elif "phi" in args.model:
+            from eval_ppl_utils import phi_eval
+
+            phi_eval(model, testloader, device, dataset, args.log_wandb)
+        elif "phi" in args.model:
+            from eval_ppl_utils import mistral_eval
+
+            mistral_eval(model, testloader, device, dataset, args.log_wandb)
