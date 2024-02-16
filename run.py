@@ -73,6 +73,15 @@ def quant_sequential(model, dataloader, dev):
         layers = model.model.layers
         model.model.embed_tokens = model.model.embed_tokens.to(dev)
         model.model.norm = model.model.norm.to(dev)
+    elif "phi" in args.model:
+        layers = model.model.layers
+        model.model.embed_tokens = model.model.embed_tokens.to(dev)
+        model.model.norm = model.model.norm.to(dev)
+    elif "mistral" in args.model:
+        layers = model.model.layers
+        model.model.embed_tokens = model.model.embed_tokens.to(dev)
+        model.model.norm = model.model.norm.to(dev)
+        
     layers[0] = layers[0].to(dev)
 
     dtype = next(iter(model.parameters())).dtype
